@@ -16,7 +16,6 @@ public class Ullrich001_A1Blackjack {
      */
     public static void main(String[] args) {
         Deck myDeck = new Deck();
-        
         myDeck.printDeck();
     }
     

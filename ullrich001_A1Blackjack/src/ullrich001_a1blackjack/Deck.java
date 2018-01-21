@@ -6,7 +6,6 @@
 package ullrich001_a1blackjack;
 
 /*TODO
-Populate ranks array with ranks
 Assemble initDeck
 Change dealCard return
 */
@@ -17,17 +16,22 @@ Change dealCard return
  */
 public class Deck {
     
-    private Card[] myDeck;
-    private String[] ranks = {"Ace", "2", "3", "4"}; //Populate with ranks later
+    private Card[] myDeck = new Card[51];
+    private String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", 
+        "10", "Jack", "Queen", "King"};
     private String[] suits = {"Hearts", "Diamonds", "Spades", "Clubs"};
     private int nextCardIndex = 0;
     
     public Deck(){
         initDeck();
-        shuffleDeck();
+        //shuffleDeck();
     }
     
     private void initDeck(){
+        for( int i=0; i<myDeck.length; i++ ){
+                Card cCard = new Card(ranks[i%13], suits[i/13]);
+                myDeck[i] = cCard;
+        }
         
     }
     
@@ -36,8 +40,8 @@ public class Deck {
     }
     
     public Card dealCard(){
-        
-        return null; //Change to actual Card return
+        Card deal = myDeck[nextCardIndex];
+        return deal; //Change to actual Card return
     }
     
     public void printDeck(){
