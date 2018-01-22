@@ -5,6 +5,11 @@
  */
 package ullrich001_a1blackjack;
 
+/* Card
+-suit String
+-rank String
+*/
+
 /**
  *
  * @author Danie

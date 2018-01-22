@@ -5,9 +5,16 @@
  */
 package ullrich001_a1blackjack;
 
-/*TODO
-Assemble initDeck
-Change dealCard return
+/* Deck
+-myDeck : Card[51]
+-suits : String[3]
+-ranks : String[12]
+-nextCardIndex : int
+
+-initDeck() : void
+-shuffleDeck() : void
++dealCard() : Card
++printDeck() : void
 */
 
 /**
@@ -16,7 +23,7 @@ Change dealCard return
  */
 public class Deck {
     
-    private Card[] myDeck = new Card[51];
+    private Card[] myDeck = new Card[52];
     private String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", 
         "10", "Jack", "Queen", "King"};
     private String[] suits = {"Hearts", "Diamonds", "Spades", "Clubs"};
@@ -24,18 +31,24 @@ public class Deck {
     
     public Deck(){
         initDeck();
-        //shuffleDeck();
+        shuffleDeck();
     }
-    
-    private void initDeck(){
+     
+   private void initDeck(){
         for( int i=0; i<myDeck.length; i++ ){
                 Card cCard = new Card(ranks[i%13], suits[i/13]);
                 myDeck[i] = cCard;
         }
-        
     }
     
     private void shuffleDeck(){
+        
+        for(int i = 0; i<myDeck.length; i++){
+            Card temp = myDeck[i];
+            int randInt = (int)(Math.random() * 52); //output between 0 and 51
+            myDeck[i] = myDeck[randInt];
+            myDeck[randInt] = temp;
+        }
         
     }
     
