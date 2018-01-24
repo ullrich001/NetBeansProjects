@@ -22,5 +22,29 @@ package ullrich001_a1blackjack;
  * @author Danie
  */
 public class Hand {
+    private Card[] myCards = new Card[5];
+    private int score;
+    private int cardCount;
     
+    private int updateScore(){
+        //score + [newCardValue]
+        return score; 
+    }
+    
+    public void addCard(Card newCard){
+        //add new card object to myCards
+        //cardCount++;
+    }
+    
+    public int getCardCount(){
+        return cardCount;
+    }
+    
+    public int getScore(){
+        return score;
+    }
+    
+    public void printHand(){
+//        //for() loop running Card.toString() for each object in myCards[]
+    }
 }

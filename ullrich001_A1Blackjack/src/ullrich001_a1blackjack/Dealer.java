@@ -22,5 +22,24 @@ package ullrich001_a1blackjack;
  * @author Danie
  */
 public class Dealer {
+    private Deck myDeck;
+    private Player[] myPlayers = new Player[3];
+    private Hand dealerHand[];
+    private Player currentPlayer;
     
+    public void dealOpeningHand(){
+        
+    }
+    
+    public void playOutPlayerHands(){
+        
+    }
+    
+    public void playOutDealerHand(){
+        
+    }
+    
+    public void declareVictors(){
+        
+    }
 }

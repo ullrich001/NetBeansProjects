@@ -18,5 +18,14 @@ package ullrich001_a1blackjack;
  * @author Danie
  */
 public class Player {
+    private Hand myHand;
+    private String name;
     
+    public Hand getHand(){
+        return myHand;
+    }
+    
+    public String getName(){
+        return name;
+    }
 }
