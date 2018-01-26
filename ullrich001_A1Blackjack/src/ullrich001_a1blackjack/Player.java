@@ -21,6 +21,11 @@ public class Player {
     private Hand myHand;
     private String name;
     
+    public Player(String name){
+        myHand = new Hand();
+        this.name = name;
+    }
+    
     public Hand getHand(){
         return myHand;
     }

@@ -6,7 +6,7 @@
 package ullrich001_a1blackjack;
 
 /* Deck
--myDeck : Card[51]
+-myCards : Card[51]
 -suits : String[3]
 -ranks : String[12]
 -nextCardIndex : int
@@ -23,7 +23,7 @@ package ullrich001_a1blackjack;
  */
 public class Deck {
     
-    private Card[] myDeck = new Card[52];
+    private Card[] myCards = new Card[52];
     private String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", 
         "10", "Jack", "Queen", "King"};
     private String[] suits = {"Hearts", "Diamonds", "Spades", "Clubs"};
@@ -35,31 +35,32 @@ public class Deck {
     }
      
    private void initDeck(){
-        for( int i=0; i<myDeck.length; i++ ){
-                Card cCard = new Card(ranks[i%13], suits[i/13]);
-                myDeck[i] = cCard;
+        for(int i=0; i<myCards.length; i++){
+                myCards[i] = new Card(ranks[i%13], suits[i/13]);
         }
     }
     
     private void shuffleDeck(){
-        
-        for(int i = 0; i<myDeck.length; i++){
-            Card temp = myDeck[i];
+        for(int i = 0; i<myCards.length; i++){
+            Card temp = myCards[i];
             int randInt = (int)(Math.random() * 52); //output between 0 and 51
-            myDeck[i] = myDeck[randInt];
-            myDeck[randInt] = temp;
+            myCards[i] = myCards[randInt];
+            myCards[randInt] = temp;
         }
-        
     }
     
     public Card dealCard(){
-        Card deal = myDeck[nextCardIndex];
-        return deal; //Change to actual Card return
+        if(nextCardIndex >= myCards.length){
+            shuffleDeck();
+            nextCardIndex = 0;
+        }
+        Card deal = myCards[nextCardIndex++];
+        return deal;
     }
     
     public void printDeck(){
-        for( int i = 0; i < myDeck.length; i++){
-            System.out.println(myDeck[i].toString());
+        for(int i = 0; i < myCards.length; i++){
+            System.out.println(myCards[i].toString());
         }
     }
     

@@ -10,11 +10,15 @@ package ullrich001_a1blackjack;
 -score : int
 -cardCount : int
 
--updateScore() : int
+-updateScore() : void
 +addCard(Card) : void
 +getCardCount() : int
 +getScore() : int
 +printHand() : void
+*/
+
+/*Needs Done:
+    updateScore; may need to alter Card to add score values.
 */
 
 /**
@@ -23,17 +27,20 @@ package ullrich001_a1blackjack;
  */
 public class Hand {
     private Card[] myCards = new Card[5];
-    private int score;
-    private int cardCount;
+    private int score = 0;
+    private int cardCount = 0;
     
-    private int updateScore(){
-        //score + [newCardValue]
-        return score; 
+    public Hand(){}
+    
+    private void updateScore(){
+        //score + [newCardValue] 
     }
     
-    public void addCard(Card newCard){
-        //add new card object to myCards
-        //cardCount++;
+    public void addCard(Card nextCard){
+        if(cardCount > myCards.length){
+            myCards[cardCount++] = nextCard;
+            updateScore();
+        }
     }
     
     public int getCardCount(){
@@ -45,6 +52,8 @@ public class Hand {
     }
     
     public void printHand(){
-//        //for() loop running Card.toString() for each object in myCards[]
+        for(int i = 0; i < myCards.length; i++){
+            System.out.println(myCards[i].toString());
+        }
     }
 }

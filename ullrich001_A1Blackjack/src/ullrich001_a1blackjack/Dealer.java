@@ -22,13 +22,22 @@ package ullrich001_a1blackjack;
  * @author Danie
  */
 public class Dealer {
-    private Deck myDeck;
-    private Player[] myPlayers = new Player[3];
-    private Hand dealerHand[];
+    private Deck myDeck = new Deck();
+    private Player[] players;
+    private Hand dealerHand = new Hand();
     private Player currentPlayer;
     
+    public Dealer( int numOfPlayers ){
+        players = new Player[numOfPlayers];
+    }
+    
     public void dealOpeningHand(){
-        
+        for( int round = 0; round < 2; round++ ){
+            for( int i = 0; i < players.length; i++ ){
+                players[i].getHand().addCard(myDeck.dealCard());
+            }
+            dealerHand.addCard(myDeck.dealCard());
+        }
     }
     
     public void playOutPlayerHands(){
