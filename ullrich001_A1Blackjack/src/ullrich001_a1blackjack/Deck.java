@@ -54,7 +54,8 @@ public class Deck {
             shuffleDeck();
             nextCardIndex = 0;
         }
-        Card deal = myCards[nextCardIndex++];
+        Card deal = myCards[nextCardIndex];
+        nextCardIndex++;
         return deal;
     }
     

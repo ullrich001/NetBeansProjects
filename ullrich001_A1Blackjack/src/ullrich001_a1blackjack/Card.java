@@ -34,7 +34,16 @@ public class Card {
     
     @Override
     public String toString(){
-        return rank + " of " + suit;
+        return (rank + " of " + suit);
     }
 
+    public int getValue(){
+        if(rank.length() < 3){
+            return Integer.parseInt(rank);
+        }else if(rank.equals("Ace")){
+            return 1;
+        }else{
+            return 10;
+        }
+    }
 }

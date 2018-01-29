@@ -32,15 +32,13 @@ public class Hand {
     
     public Hand(){}
     
-    private void updateScore(){
-        //score + [newCardValue] 
+    private void updateScore(Card currentCard){
+        score += currentCard.getValue();
     }
     
     public void addCard(Card nextCard){
-        if(cardCount > myCards.length){
-            myCards[cardCount++] = nextCard;
-            updateScore();
-        }
+        myCards[cardCount++] = nextCard;
+        updateScore(nextCard);
     }
     
     public int getCardCount(){
@@ -52,8 +50,9 @@ public class Hand {
     }
     
     public void printHand(){
-        for(int i = 0; i < myCards.length; i++){
+        for(int i = 0; i < cardCount; i++){
             System.out.println(myCards[i].toString());
         }
+        System.out.println("Your score: " + score);
     }
 }

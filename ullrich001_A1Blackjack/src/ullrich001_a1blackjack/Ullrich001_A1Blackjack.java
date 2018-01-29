@@ -15,8 +15,11 @@ public class Ullrich001_A1Blackjack {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Deck myDeck = new Deck();
-        myDeck.printDeck();
+        //Deck myDeck = new Deck();
+        //myDeck.printDeck();
+        Dealer fred = new Dealer(3);
+        fred.dealOpeningHand();
+        fred.playOutPlayerHands();
     }
     
 }
