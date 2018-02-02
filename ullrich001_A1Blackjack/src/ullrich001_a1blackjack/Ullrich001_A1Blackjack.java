@@ -20,6 +20,8 @@ public class Ullrich001_A1Blackjack {
         Dealer fred = new Dealer(3);
         fred.dealOpeningHand();
         fred.playOutPlayerHands();
+        fred.playOutDealerHand();
+        fred.declareVictors();
     }
     
 }

@@ -53,6 +53,6 @@ public class Hand {
         for(int i = 0; i < cardCount; i++){
             System.out.println(myCards[i].toString());
         }
-        System.out.println("Your score: " + score);
+        System.out.println("Score: " + score);
     }
 }

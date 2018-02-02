@@ -103,10 +103,36 @@ public class Dealer {
     }
     
     public void playOutDealerHand(){
-        
+        while(dealerHand.getScore() < 17 && dealerHand.getCardCount() < 5){
+            dealerHand.addCard(myDeck.dealCard());
+        }
     }
     
     public void declareVictors(){
+        int dealerScore = dealerHand.getScore();
+        boolean dealerHasFive = (dealerHand.getCardCount() == 5);
+        System.out.println("Dealer Hand:");
+        dealerHand.printHand();
+        if(dealerScore > 21){
+            System.out.println("THE DEALER HAS BUSTED");
+        }
         
+        for(Player currPlayer : players){ //for-each loop
+            int currScore = currPlayer.getHand().getScore();
+            boolean playerHasFive = (currPlayer.getHand().getCardCount() == 5);
+            System.out.println(currPlayer.getName() +"'s Hand:");
+            currPlayer.getHand().printHand();
+            if(currScore > 21){
+                System.out.println("You busted, " + currPlayer.getName());
+            }else if(dealerScore > 21 && currScore < 21){
+                System.out.println( currPlayer.getName() + ", you win!" );
+            }else if(!dealerHasFive && playerHasFive && dealerScore != 21){
+                System.out.println( currPlayer.getName() + ", you win!" );
+            }else if(!dealerHasFive && !playerHasFive && currScore > dealerScore){
+                System.out.println( currPlayer.getName() + ", you win!" );
+            }else{
+                System.out.println( currPlayer.getName() + ", you lose." );
+            }
+        }
     }
 }
