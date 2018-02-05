@@ -6,7 +6,7 @@
 package ullrich001_2darrayex;
 
 /**
- *
+ * 
  * @author Danie
  */
 public class Ullrich001_2DArrayEx {
@@ -16,6 +16,7 @@ public class Ullrich001_2DArrayEx {
      */
     public static void main(String[] args) {
         TwoDArr my2DArr = new TwoDArr();
+         
         my2DArr.fillArr();
         my2DArr.printArr();
     }
