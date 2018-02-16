@@ -15,7 +15,9 @@ public class Ullrich001_TicTacToe {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Board myBoard = new Board();
+        TurnHandler george = new TurnHandler();
+        george.initTurns();
+        /*Board myBoard = new Board();
         int ctr = 0;
         char piece;
         while(!myBoard.fullCheck()){
@@ -28,7 +30,7 @@ public class Ullrich001_TicTacToe {
             ctr++;
         }
         System.out.println("Final Board:");
-        myBoard.printBoard();
+        myBoard.printBoard();*/
     }
     
 }

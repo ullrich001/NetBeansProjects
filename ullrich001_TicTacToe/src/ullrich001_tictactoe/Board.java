@@ -16,7 +16,7 @@ import java.util.Scanner;
 * +addPiece() : void
 * +printBoard() : void
 * +fullCheck() : boolean
-* +winCheck() : boolean
+* +winnerCheck() : char
 */
 
 /**
@@ -39,12 +39,12 @@ public class Board {
         }
     }
     
-    public void playTurn(char pl){
+    public void addPiece(char token){
         boolean valid = false;
         Scanner scan = new Scanner(System.in);
         while(!valid){
             this.printBoard();
-            System.out.print("You are " + pl + ".\nWhat row would you like"
+            System.out.print("You are " + token + ".\nWhat row would you like"
                     + " to place your piece in? (1-3): ");
             row = scan.nextInt();
             while(row < 1 || row > 3){
@@ -58,16 +58,12 @@ public class Board {
                 column = scan.nextInt();
             }
             if(myBoard[row-1][column-1] == ' '){
-                this.addPiece(row-1, column-1, pl);
+                myBoard[row-1][column-1] = token;
                 valid = true;
             } else {
                 System.out.println("This space is full. Please try again.");
             }
         }
-    }
-    
-    public void addPiece(int row, int column, char piece){
-        myBoard[row][column] = piece;
     }
     
     public void printBoard(){
@@ -104,7 +100,7 @@ public class Board {
         return fullCheck;
     }
     
-    public boolean winCheck(){
+    public char winnerCheck(){
         char token = 'X';
         boolean win = false;
         for(int ctr = 0; ctr < 2; ctr++){
@@ -117,7 +113,7 @@ public class Board {
                         break;
                     }
                 }
-                if(win) return true;
+                if(win) return token;
             }
             for(column = 0; column < 3; column++){
                 for(row = 0; row < 3; row++){
@@ -128,17 +124,17 @@ public class Board {
                         break;
                     }
                 }
-                if(win) return true;
+                if(win) return token;
             }
             if(myBoard[0][0] == token && myBoard[1][1] == token &&
                     myBoard[2][2] == token){
-                return true;
+                return token;
             } else if(myBoard[0][2] == token && myBoard[1][1] ==
                     token && myBoard[2][0] == token){
-                return true;
+                return token;
             }
             token = 'O';
         }
-        return win;
+        return ' ';
     }
 }

@@ -27,9 +27,27 @@ public class TurnHandler {
     
     public void initTurns(){
         do{
-            
+            if(turnCtr % 2 == 0){
+                token = 'X';
+            }else{
+                token = 'O';
+            }
+            myBoard.addPiece(token);
+            turnCtr++;
             if(myBoard.fullCheck()) break;
-        } while(myBoard.winCheck());
+        }while(myBoard.winnerCheck() == ' ');
+        if(myBoard.fullCheck()){
+            myBoard.printBoard();
+            System.out.println("It's a tie!");
+        }else if(myBoard.winnerCheck() == 'X'){
+            myBoard.printBoard();
+            System.out.println("X Wins!");
+        }else if(myBoard.winnerCheck() == 'O'){
+            myBoard.printBoard();
+            System.out.println("O Wins!");
+        }else{
+            System.out.println("ERROR HANDLER");
+        }
     }
     
 
