@@ -7,6 +7,18 @@ package ullrich001_tictactoe;
 
 import java.util.Scanner;
 
+/* Board
+* -myBoard : char[][]
+* -row : int
+* -column : int
+*
+* +initBoard() : void
+* +addPiece() : void
+* +printBoard() : void
+* +fullCheck() : boolean
+* +winCheck() : boolean
+*/
+
 /**
  *
  * @author Danie
@@ -76,7 +88,7 @@ public class Board {
         System.out.println(myBoard[i][j]);
     }
     
-    public boolean checkIfFull(){
+    public boolean fullCheck(){
         boolean fullCheck = true;
         for(int i = 0; i < myBoard.length; i++){
             for( int j = 0; j < myBoard[i].length; j++){
@@ -90,5 +102,43 @@ public class Board {
             if(!fullCheck) break;
         }
         return fullCheck;
+    }
+    
+    public boolean winCheck(){
+        char token = 'X';
+        boolean win = false;
+        for(int ctr = 0; ctr < 2; ctr++){
+            for(row = 0; row < 3; row++){
+                for(column = 0; column < 3; column++){
+                    if(myBoard[row][column] == token){
+                        win = true;
+                    } else {
+                        win = false;
+                        break;
+                    }
+                }
+                if(win) return true;
+            }
+            for(column = 0; column < 3; column++){
+                for(row = 0; row < 3; row++){
+                    if(myBoard[row][column] == token){
+                        win = true;
+                    } else {
+                        win = false;
+                        break;
+                    }
+                }
+                if(win) return true;
+            }
+            if(myBoard[0][0] == token && myBoard[1][1] == token &&
+                    myBoard[2][2] == token){
+                return true;
+            } else if(myBoard[0][2] == token && myBoard[1][1] ==
+                    token && myBoard[2][0] == token){
+                return true;
+            }
+            token = 'O';
+        }
+        return win;
     }
 }

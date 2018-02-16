@@ -18,7 +18,7 @@ public class Ullrich001_TicTacToe {
         Board myBoard = new Board();
         int ctr = 0;
         char piece;
-        while(!myBoard.checkIfFull()){
+        while(!myBoard.fullCheck()){
             if(ctr % 2 == 0){
                 piece = 'X';
             } else {
