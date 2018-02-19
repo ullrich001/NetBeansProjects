@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ullrich001_tictactoe;
+package ullrich001_inheritanceexample;
 
 /**
  *
  * @author Danie
  */
-public class Ullrich001_TicTacToe {
+public class Ullrich001_InheritanceExample {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TurnHandler george = new TurnHandler();
-        george.initTurns();
+        GuessThePlane game = new GuessThePlane();
     }
     
 }

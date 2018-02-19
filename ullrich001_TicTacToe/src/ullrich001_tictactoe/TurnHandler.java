@@ -37,12 +37,15 @@ public class TurnHandler {
             if(myBoard.fullCheck()) break;
         }while(myBoard.winnerCheck() == ' ');
         if(myBoard.fullCheck()){
+            System.out.println("FINAL BOARD:");
             myBoard.printBoard();
             System.out.println("It's a tie!");
         }else if(myBoard.winnerCheck() == 'X'){
+            System.out.println("FINAL BOARD:");
             myBoard.printBoard();
             System.out.println("X Wins!");
         }else if(myBoard.winnerCheck() == 'O'){
+            System.out.println("FINAL BOARD:");
             myBoard.printBoard();
             System.out.println("O Wins!");
         }else{
