@@ -7,18 +7,6 @@ package ullrich001_tictactoe;
 
 import java.util.Scanner;
 
-/* Board
-* -myBoard : char[][]
-* -row : int
-* -column : int
-*
-* +initBoard() : void
-* +addPiece() : void
-* +printBoard() : void
-* +fullCheck() : boolean
-* +winnerCheck() : char
-*/
-
 /**
  *
  * @author Danie

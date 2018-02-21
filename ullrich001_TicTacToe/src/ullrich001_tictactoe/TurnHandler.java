@@ -5,16 +5,6 @@
  */
 package ullrich001_tictactoe;
 
-/* TurnHandler
-* -row : int
-* -col : int
-* -turnCtr : int
-* -token : char
-* -myBoard : Board
-*
-* +startTurns() : void
-*/
-
 /**
  *
  * @author Danie
